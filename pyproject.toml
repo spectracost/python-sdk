@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "spectracost"
-version = "0.2.1"
+version = "0.2.2"
 description = "AI cost observability SDK - see the full spectrum of your AI spend"
 readme = "README.md"
 license = "MIT"
