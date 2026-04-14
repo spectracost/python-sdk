@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "spectracost"
-version = "0.2.2"
+version = "0.2.3"
 description = "AI cost observability SDK - see the full spectrum of your AI spend"
 readme = "README.md"
 license = "MIT"
@@ -17,11 +17,6 @@ classifiers = [
     "Topic :: Software Development :: Libraries",
 ]
 
-[project.urls]
-Homepage = "https://github.com/spectracost/python-sdk"
-Issues = "https://github.com/spectracost/python-sdk/issues"
-Source = "https://github.com/spectracost/python-sdk"
-
 # Zero required dependencies — only stdlib
 dependencies = []
 
@@ -33,6 +28,11 @@ dev = [
     "anthropic>=0.30",
     "ruff>=0.4",
 ]
+
+[project.urls]
+Homepage = "https://github.com/spectracost/python-sdk"
+Issues = "https://github.com/spectracost/python-sdk/issues"
+Source = "https://github.com/spectracost/python-sdk"
 
 [tool.ruff]
 target-version = "py310"
