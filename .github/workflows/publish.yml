@@ -1,0 +1,37 @@
+name: Publish to PyPI
+
+# This workflow runs INSIDE the public spectracost/python-sdk repo
+# after the sync bot pushes a new v* tag. It publishes to PyPI via
+# Trusted Publishing (OIDC) — no API token needed.
+#
+# Prerequisite: PyPI has a trusted publisher configured pointing at
+# spectracost/python-sdk + publish.yml.
+
+on:
+  push:
+    tags:
+      - "v*"
+  workflow_dispatch:
+
+jobs:
+  publish:
+    name: Publish to PyPI via Trusted Publishing
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install build tooling
+        run: pip install --upgrade build
+
+      - name: Build sdist and wheel
+        run: python -m build
+
+      - name: Publish to PyPI
+        uses: pypa/gh-action-pypi-publish@release/v1
